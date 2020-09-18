@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import logo from '../../images/Logo.png'
 
 const Header = () => {
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="light" variant="light">
         <Navbar.Brand>
-            <img style={{width:'20px',height:'20px'}} className='img-fluid' src="../../images/Logo.png" alt="Logo"/>
+            <img style={{width:'80px',height:'50px',color: 'white'}} className='img-fluid' src={logo} alt="Logo"/>
         </Navbar.Brand>
         <Form inline className='ml-5'>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

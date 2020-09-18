@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import fakeData from '../../fakeData/LocationData';
 import Locations from '../Locations/Locations';
-import images from '../../images';
+import sundarban from '../../images/sundorbon.png'
 
 const Home = () => {
     // const [locations,setLocations] = useState([])
@@ -30,14 +30,15 @@ const Home = () => {
         {
             id: 1,
             name: 'SUNDARBANS',
-            description: 'Tribune Experts said that the trail of devastation the Amphan left would have been much higher, had the Sundarbans not been there The Sundarbans have once again acted as a biological protective shield against cyclones and typhoons, as observed through its resistance against the severe cyclonic storm Amphan.'
+            description: 'Tribune Experts said that the trail of devastation the Amphan left would have been much higher, had the Sundarbans not been there The Sundarbans have once again acted as a biological protective shield against cyclones and typhoons, as observed through its resistance against the severe cyclonic storm Amphan.',
+            places: 'sundorbon'
         }
     ]
     // console.log(fakeData);
     return (
         <div className='mt-5 home'>
             {
-               locations.map(location => <Locations location={location}></Locations>)
+               locations.map(location => <Locations  location={location}></Locations>)
             }
         </div>
 
