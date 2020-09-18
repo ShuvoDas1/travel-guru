@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.png'
 
 const Header = () => {
@@ -13,10 +14,8 @@ const Header = () => {
         <Button variant="outline-info">Search</Button>
         </Form>
         <Nav className="ml-auto">
-            <Nav.Link href="#news">News</Nav.Link>
-            <Nav.Link href="#destination">Destination</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
-            <button class='btn btn-warning'>Login</button>
+            <Link to='/home'>Home</Link>
+            <button class='btn btn-warning ml-5'>Login</button>
         </Nav>
         
     </Navbar>

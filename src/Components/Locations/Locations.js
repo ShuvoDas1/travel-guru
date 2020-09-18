@@ -1,12 +1,15 @@
 import React from 'react';
 import { Button, Card} from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import './Locations.css'
 const Locations = (props) => {
-    const {name,description,img} = props.location;
-    // console.log(props.location);
+     console.log(props);
+    const {id,name,description} = props.location;
+    //  console.log(name);
+    const history = useHistory();
 
-    const handleBookingBtn = () =>{
-        console.log('btn clicked');
+    const handleBookingBtn = (id) =>{
+        history.push('/booking/'+ id);
     }
 
     return (
@@ -16,7 +19,9 @@ const Locations = (props) => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
-                <Button onClick = {handleBookingBtn} variant="primary">Booking</Button>
+                { props.showBtn &&
+                    <Button onClick = {() => handleBookingBtn(id)} variant="primary">Booking</Button>
+                }
             </Card.Body>
             </Card>
            
