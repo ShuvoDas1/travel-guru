@@ -1,5 +1,6 @@
 .locations{
     display: flex;
-    margin: 40px;
+    margin-top: 10px;
+    margin-left: auto;
     justify-content: space-between;
 }

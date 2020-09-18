@@ -14,7 +14,7 @@ const Locations = (props) => {
 
     return (
         <div className='locations'>
-            <Card style={{ width: '25rem' }}>
+            <Card style={{ width:'40%',height: '300px'}}>
             <Card.Img variant="top"  />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
