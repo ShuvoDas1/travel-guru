@@ -9,7 +9,7 @@ const Locations = (props) => {
     const history = useHistory();
 
     const handleBookingBtn = (id) =>{
-        history.push('/booking/'+ id);
+        history.push('/location/'+ id);
     }
 
     return (

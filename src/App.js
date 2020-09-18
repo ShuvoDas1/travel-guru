@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import NotFound from './Components/NotFound/NotFound';
 import LocationDetail from './Components/LocationDetail/LocationDetail';
+import Login from './Components/Login/Login';
 export const locationContext = createContext();
 
 
@@ -28,8 +29,11 @@ function App() {
         <Route exact path='/'>
             <Home></Home>
         </Route>
-        <Route path='/booking/:placeId'>
+        <Route path='/location/:placeId'>
           <LocationDetail></LocationDetail>
+        </Route>
+        <Route path='/login'>
+            <Login></Login>
         </Route>
         <Route path='*'>
           <NotFound></NotFound>

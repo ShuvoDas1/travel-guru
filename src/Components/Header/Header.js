@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import logo from '../../images/Logo.png'
 
 const Header = () => {
+    const history = useHistory()
+    const handleLoginBtn = () =>{
+        history.push('/login')
+    }
     return (
         <Navbar bg="light" variant="light">
         <Navbar.Brand>
@@ -15,7 +19,7 @@ const Header = () => {
         </Form>
         <Nav className="ml-auto">
             <Link to='/home'>Home</Link>
-            <button class='btn btn-warning ml-5'>Login</button>
+            <button onClick={handleLoginBtn} class='btn btn-warning ml-5'>Login</button>
         </Nav>
         
     </Navbar>
