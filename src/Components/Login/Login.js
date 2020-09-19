@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from './firebase.config';
+import firebaseConfig from './firebase.config.js';
+import { UserContext } from '../../App.js';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const Login = () => {
-    if(firebase.app.length == 0){
+    const [loggedInUser,setLoggedInUser] = useContext(UserContext);
+    if(firebase.apps.length === 0){
         firebase.initializeApp(firebaseConfig);
     }
+    let history = useHistory();
+    let location = useLocation();
+  
+    let { from } = location.state || { from: { pathname: "/roombooking" } };
+
+    const  googleProvider = new firebase.auth.GoogleAuthProvider();
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
+    
     const signInWithGoogle = () => {
-        const  provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
+        firebase.auth().signInWithPopup(googleProvider)
         .then(result => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            // ...
-          }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            const  {displayName,email,photoURL} = result.user;
+            const newUserInfo = {
+                name: displayName,
+                email: email,
+                photo: photoURL
+            }
+            setLoggedInUser(newUserInfo);   
+            history.replace(from);
+          }).catch(error => {
+              console.log(error);
+              console.log(error.message);      
+          });
+    }
+    const signInWithFb = () =>{
+        firebase.auth().signInWithPopup(fbProvider)
+            .then(result => {    
+            const user = result.user;
+            console.log(user);
+          })
+          .catch(error => {
+            console.log(error);
+            console.log(error.message);
+            
           });
     }
     return (
-        <>
-        <form>
+        
+        <form style={{width:'350px', marginLeft:'40%'}}>
             <h3>Login</h3>
             <br/>
             <input type="text"  className='form-control' placeholder='Username or Email' />
@@ -38,12 +57,16 @@ const Login = () => {
             <br/>
             <input type="checkbox" name="Remember Me" id=""/>
             <label htmlFor="rememberMe"> Remember Me</label>
+            <a href="#" style={{marginLeft:'80px'}}>Forget Password</a>
             <br/>
-            <button className='btn btn-success'>Login</button>
+            <button className='btn-lg btn-success' >Login</button>
+            <hr/>
+            <button className='btn btn-warning'  onClick={signInWithGoogle}>Contineu With Google</button>
+            <hr/>
+            <button className='btn btn-warning' onClick={signInWithFb} >Contineu With Facebook</button>
         </form>
-        <br/>
-        <button onClick={signInWithGoogle}>Contineu With Google</button>
-        </>
+       
+      
     
     );
 };

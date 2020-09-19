@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { locationContext } from '../../App.js';
 import Locations from '../Locations/Locations.js';
 import fakeData from '../../fakeData/LocationData.js'
@@ -10,7 +10,7 @@ const LocationDetail = () => {
     const { placeId } = useParams();
     // const [locations, setLocations] = useContext(locationContext);
     const place = fakeData.find(place => place.id == placeId)
-    console.log(place);
+    // console.log(place);
     const locationStyle = {
         display: 'flex',
         marginTop: '30px'
@@ -19,9 +19,10 @@ const LocationDetail = () => {
         width: '60%',
         marginLeft: '30px'
     }
-    
+    const history = useHistory();
     const handleSubmitBtn = () =>{
-        console.log('btn clicked')
+        history.push('/roombooking');
+
     }
 
     return (
@@ -58,7 +59,7 @@ const LocationDetail = () => {
                             </Col>
                         </Row>
                     </Form.Group>
-                    <Button size='lg' onClicked={handleSubmitBtn} variant="warning" type="submit" block>
+                    <Button size='lg' onClick ={handleSubmitBtn} variant="warning" type="Btn" block>
                         Start Booking
                     </Button>
                 </Form>

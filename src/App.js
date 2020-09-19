@@ -12,15 +12,21 @@ import {
 import NotFound from './Components/NotFound/NotFound';
 import LocationDetail from './Components/LocationDetail/LocationDetail';
 import Login from './Components/Login/Login';
-export const locationContext = createContext();
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import RoomBooking from './Components/RoomBooking/RoomBooking';
+export const UserContext = createContext();
 
 
 function App() {
-  const [locations,setLocations] = useState([]);
-   console.log(locations);
+   const [loggedInUser,setLoggedInUser] = useState({
+     name: '',
+     email: '',
+     photo: ''
+   })
   return (
-    <locationContext.Provider value={[locations,setLocations]}>
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
+      <h1>Email:{loggedInUser.email}</h1>
       <Header></Header>
       <Switch>
         <Route exact path='/home'>
@@ -35,12 +41,15 @@ function App() {
         <Route path='/login'>
             <Login></Login>
         </Route>
+        <PrivateRoute path='/roombooking'>
+          <RoomBooking></RoomBooking>
+        </PrivateRoute>
         <Route path='*'>
           <NotFound></NotFound>
         </Route>
       </Switch>
       </Router>
-    </locationContext.Provider>
+    </UserContext.Provider>
   );
 }
 
