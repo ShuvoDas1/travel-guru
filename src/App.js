@@ -21,12 +21,14 @@ function App() {
    const [loggedInUser,setLoggedInUser] = useState({
      name: '',
      email: '',
-     photo: ''
+     photo: '',
+     password: ''
    })
+  
   return (
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
-      <h1>Email:{loggedInUser.email}</h1>
+
       <Header></Header>
       <Switch>
         <Route exact path='/home'>
