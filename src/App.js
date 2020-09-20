@@ -14,6 +14,7 @@ import LocationDetail from './Components/LocationDetail/LocationDetail';
 import Login from './Components/Login/Login';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import RoomBooking from './Components/RoomBooking/RoomBooking';
+import SignUp from './Components/Login/SignUp';
 export const UserContext = createContext();
 
 
@@ -22,7 +23,10 @@ function App() {
      name: '',
      email: '',
      photo: '',
-     password: ''
+     password: '',
+     error: '',
+     success: false,
+    isNewUser: true
    })
   
   return (
@@ -42,6 +46,9 @@ function App() {
         </Route>
         <Route path='/login'>
             <Login></Login>
+        </Route>
+        <Route path='/signup'>
+          <SignUp></SignUp>
         </Route>
         <PrivateRoute path='/roombooking'>
           <RoomBooking></RoomBooking>
