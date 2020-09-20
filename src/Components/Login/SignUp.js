@@ -120,7 +120,7 @@ const SignUp = () => {
          <div style={{marginLeft:'40%', marginRight:"35%"}}>
             <button className='btn btn-warning'  onClick={signInWithGoogle}>Contineu With Google</button>
             <hr/>
-            <button className='btn btn-warning' onClick={signInWithFb}>Contineu With Facebook</button>
+            <button className='btn btn-warning mb-2' onClick={signInWithFb}>Contineu With Facebook</button>
          </div>
 
         </>

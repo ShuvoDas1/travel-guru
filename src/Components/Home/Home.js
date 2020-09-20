@@ -13,9 +13,12 @@ const Home = () => {
     useEffect(() => {
         setLocations(fakeData);
     },[])
-    
+    const style = {
+        display: 'flex',
+        justifyContent: 'space-between'
+    }
     return (
-        <div className='mt-5 home'>
+        <div className='home' style={style}>
             {
                locations.map(location => <Locations showBtn={true} location={location}></Locations>)
             }

@@ -104,7 +104,9 @@ const Login = () => {
                 <p>Don't have an accont <Link to='/signup'>Create an account</Link> </p> 
             </form>
             <br/>
-                <p style={{color:'red',textAlign:'center'}}>{loggedInUser.error}</p>
+                {
+                loggedInUser.isLogin === false && <p style={{color:'red',textAlign:'center'}}>{loggedInUser.error}</p>
+                }
             
             <div style={{marginLeft:'40%', marginRight:"35%"}}>
             <button className='btn btn-warning'  onClick={signInWithGoogle}>Contineu With Google</button>

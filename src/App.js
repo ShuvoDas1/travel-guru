@@ -26,7 +26,8 @@ function App() {
      password: '',
      error: '',
      success: false,
-    isNewUser: true
+    isNewUser: true,
+    isLogin: false
    })
   
   return (

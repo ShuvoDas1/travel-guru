@@ -13,11 +13,10 @@ const LocationDetail = () => {
     // console.log(place);
     const locationStyle = {
         display: 'flex',
-        marginTop: '30px'
+        margin: '50px'
     }
     const placeStyle = {
         width: '60%',
-        marginLeft: '30px'
     }
     const history = useHistory();
     const handleSubmitBtn = () =>{
