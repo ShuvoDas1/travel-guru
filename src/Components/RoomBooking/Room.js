@@ -20,7 +20,7 @@ const Room = (props) => {
             <div style={{marginLeft:'20px'}}>
                 <h4>{name}</h4>
                 <p>{description}</p>
-                <p>Price:${price}/per night</p>
+                <p>Price: ${price}/per night</p>
             </div>
         </div>
     );

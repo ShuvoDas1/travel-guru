@@ -13,16 +13,7 @@ const Locations = (props) => {
 
     return (
         <>
-            {/* <Card style={{ width: '300px', height: '500px', margin: '30px' }}>
-                <Card.Img variant="" />
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>{description}</Card.Text>
-                    {props.showBtn &&
-                        <Button onClick={() => handleBookingBtn(id)} variant="primary">Booking</Button>
-                    }
-                </Card.Body>
-            </Card> */}
+           
             <Card style={{ width:'300px',margin:'30px', height:'250px'}}>
                 <Card.Img src={img} alt="Card image" />
                 <Card.ImgOverlay>

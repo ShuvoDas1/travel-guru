@@ -8,9 +8,7 @@ import fakeData from '../../fakeData/LocationData.js'
 
 const LocationDetail = () => {
     const { placeId } = useParams();
-    // const [locations, setLocations] = useContext(locationContext);
     const place = fakeData.find(place => place.id == placeId)
-    // console.log(place);
     const locationStyle = {
         display: 'flex',
         margin: '50px'

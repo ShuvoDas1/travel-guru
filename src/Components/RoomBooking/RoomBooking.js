@@ -11,7 +11,6 @@ const RoomBooking = () => {
         .then(data => setRoomList(data))
     },[])
     const hotel10 = room.slice(0,10);
-    // console.log(hotel10);
     return (
         <div>
            <div>

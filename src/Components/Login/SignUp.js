@@ -105,9 +105,8 @@ const SignUp = () => {
                 displayName: name
                 })
                 .then(function() {
-                    console.log('update user name successfully');
                 }).catch(function(error) {
-                    console.log(error);
+                    
                 });
         }
     return (
