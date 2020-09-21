@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Map from './Map';
+import Room from './Room';
 
 const RoomBooking = () => {
+    const [room,setRoomList] = useState([]);
+    useEffect(() => {
+        const url = 'http://fake-hotel-api.herokuapp.com/api/hotels';
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setRoomList(data))
+    },[])
+    const hotel10 = room.slice(0,10);
+    // console.log(hotel10);
     return (
         <div>
-            <h1>This is Room Booking</h1>
+           <div>
+           {
+                hotel10.map(room => <Room room={room}></Room>)
+            }
+           </div>
+           <div>
+               <Map></Map>
+           </div>
         </div>
     );
 };

@@ -25,9 +25,8 @@ function App() {
      photo: '',
      password: '',
      error: '',
-     success: false,
-    isNewUser: true,
-    isLogin: false
+     success: false
+  
    })
   
   return (

@@ -27,10 +27,7 @@ const LocationDetail = () => {
     return (
         <div style={locationStyle}>
             <div style={placeStyle}>
-                <h1>Place Detail:</h1>
-
                 <Locations showBtn={false} location={place}></Locations>
-
             </div>
             <div >
                 <Form >

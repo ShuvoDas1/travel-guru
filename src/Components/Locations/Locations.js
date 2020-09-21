@@ -23,11 +23,11 @@ const Locations = (props) => {
                     }
                 </Card.Body>
             </Card> */}
-            <Card className=" text-white" style={{ width:'300px',margin:'30px', height:'250px'}}>
+            <Card style={{ width:'300px',margin:'30px', height:'250px'}}>
                 <Card.Img src={img} alt="Card image" />
                 <Card.ImgOverlay>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>
+                    <Card.Title className="text-black">{name}</Card.Title>
+                    <Card.Text className="text-light">
                         {description}
                     </Card.Text>
                     {props.showBtn &&

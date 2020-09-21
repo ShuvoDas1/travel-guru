@@ -83,6 +83,8 @@ const SignUp = () => {
                 newUserInfo.success = true;
                 newUserInfo.error = '';
                 setLoggedInUser(newUserInfo);
+                updateUserInfo(loggedInUser.name);
+                console.log(res);
             })
             .catch(error => {
                 const newUserInfo = {...loggedInUser}
@@ -95,15 +97,27 @@ const SignUp = () => {
         }
         e.preventDefault()
     }
+    
+
+        const updateUserInfo = name => {
+            const user = firebase.auth().currentUser;
+            user.updateProfile({
+                displayName: name
+                })
+                .then(function() {
+                    console.log('update user name successfully');
+                }).catch(function(error) {
+                    console.log(error);
+                });
+        }
     return (
         <>
         
         <form onClick={handleSignUp} style={{width:'400px', padding:'50px', marginLeft:'35%', border:'1px solid lightgray'}}>
             <h3>Create An Account</h3>
             <br/>
-            <input type="text" placeholder='First name' name='first name' className='form-control' onBlur={CheckEmailPassword} />
-            <br/>
-            <input type="text" placeholder='Last Name' className='form-control' name='last name' onBlur={CheckEmailPassword}/>
+            
+            <input type="text" placeholder='Your Name' className='form-control' name='name' onBlur={CheckEmailPassword}/>
             <br/>
             <input type="text"  className='form-control' name="email" onBlur={CheckEmailPassword} placeholder='Username or Email' required/>
             <br/>
