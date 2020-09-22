@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Room = (props) => {
-    console.log(props.room);
+    // console.log(props.room);
     const {name,images,price,description} = props.room;
     const roomStyle = {
         display: 'flex',
