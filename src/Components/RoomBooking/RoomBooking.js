@@ -5,7 +5,7 @@ import Room from './Room';
 const RoomBooking = () => {
     const [room,setRoomList] = useState([]);
     useEffect(() => {
-        const url = 'http://fake-hotel-api.herokuapp.com/api/hotels';
+        const url = 'https://fake-hotel-api.herokuapp.com/api/hotels';
         fetch(url)
         .then(res => res.json())
         .then(data => setRoomList(data))

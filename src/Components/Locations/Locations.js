@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import './Locations.css'
-import img from '../../images/Sreemongol.png'
+import img from '../../images/Sajek.png'
 const Locations = (props) => {
     const { id, name, description } = props.location;
     const history = useHistory();
